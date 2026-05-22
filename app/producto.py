@@ -1,8 +1,10 @@
 class Producto:
 
+    PRECIO_MINIMO = 0
+
     def __init__(self, nombre, precio_base):
 
-        if precio_base <= 0:
+        if precio_base <= self.PRECIO_MINIMO:
             raise ValueError(
                 "El precio debe ser mayor que cero"
             )
