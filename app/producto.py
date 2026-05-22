@@ -39,3 +39,14 @@ class Producto:
             )
 
         self.descuento = descuento
+
+    def calcular_precio_final(self):
+
+        precio_descuento = (
+            self.precio_base -
+            (self.precio_base * self.descuento / 100)
+        )
+
+        precio_final = precio_descuento * 1.19
+
+        return precio_final
