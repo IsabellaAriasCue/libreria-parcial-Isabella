@@ -45,3 +45,20 @@ def test_permitir_descuento_cero():
     producto.aplicar_descuento(0)
 
     assert producto.descuento == 0
+
+def test_calcular_precio_final():
+
+    producto = Producto("Libro", 100)
+
+    producto.aplicar_descuento(10)
+
+    assert producto.calcular_precio_final() == 107.1
+
+
+def test_precio_final_no_negativo():
+
+    producto = Producto("Libro", 100)
+
+    resultado = producto.calcular_precio_final()
+
+    assert resultado >= 0
