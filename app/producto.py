@@ -28,9 +28,12 @@ class Producto:
         self.precio_base = precio_base
         self.descuento = 0
 
+    def descuento_valido(self, descuento):
+        return 0 <= descuento <= self.DESCUENTO_MAXIMO
+
     def aplicar_descuento(self, descuento):
 
-        if descuento < 0 or descuento > self.DESCUENTO_MAXIMO:
+        if not self.descuento_valido(descuento):
             raise ValueError(
                 "El descuento debe estar entre 0 y 40"
             )
